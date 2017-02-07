@@ -17,7 +17,9 @@ class FileMonitor {
     
     init(path: String) {
         monitoredFileDescriptor = open(path, O_EVTONLY)
-        source = DispatchSource.makeFileSystemObjectSource(fileDescriptor: monitoredFileDescriptor, eventMask: [.write], queue: DispatchQueue.global())
+        source = DispatchSource.makeFileSystemObjectSource(fileDescriptor: monitoredFileDescriptor,
+                                                           eventMask: [.write],
+                                                           queue: DispatchQueue.global())
         source.setEventHandler {
             if self.enabled, let action = self.action {
                 action()
@@ -161,7 +163,10 @@ class KarabinerConfiguration {
 
 class FrontApplicationWatcher {
     init(onSwitchTo: @escaping (String) -> Void) {
-        NSWorkspace.shared().notificationCenter.addObserver(forName: NSNotification.Name.NSWorkspaceDidActivateApplication, object: nil, queue: OperationQueue.main) { (notification) in
+        NSWorkspace.shared().notificationCenter.addObserver(forName: NSNotification.Name.NSWorkspaceDidActivateApplication,
+                                                            object: nil,
+                                                            queue: OperationQueue.main)
+        { (notification) in
             guard
                 let userInfo = notification.userInfo as? [String: Any],
                 let application = userInfo[NSWorkspaceApplicationKey] as? NSRunningApplication,
