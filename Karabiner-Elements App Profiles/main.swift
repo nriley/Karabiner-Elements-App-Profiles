@@ -115,7 +115,7 @@ class KarabinerConfiguration {
 
         self.json = json
         self.profiles = profiles
-        print("Profiles: \(profileIndices) - selected: \(selectedProfileName)")
+        print("Profiles: \(profileIndices) - selected: " + (selectedProfileName ?? "none"))
     }
     
     func write(jsonUpdate: [String: Any]) throws {
