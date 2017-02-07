@@ -65,9 +65,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E177E5AA1E491CB50024F193 /* Karabiner-Elements App Profiles */ = {
+		E177E5AA1E491CB50024F193 /* Karabiner-Elements-App-Profiles */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E177E5B21E491CB50024F193 /* Build configuration list for PBXNativeTarget "Karabiner-Elements App Profiles" */;
+			buildConfigurationList = E177E5B21E491CB50024F193 /* Build configuration list for PBXNativeTarget "Karabiner-Elements-App-Profiles" */;
 			buildPhases = (
 				E177E5A71E491CB50024F193 /* Sources */,
 				E177E5A81E491CB50024F193 /* Frameworks */,
@@ -77,7 +77,7 @@
 			);
 			dependencies = (
 			);
-			name = "Karabiner-Elements App Profiles";
+			name = "Karabiner-Elements-App-Profiles";
 			productName = "Karabiner-Elements App Profiles";
 			productReference = E177E5AB1E491CB50024F193 /* Karabiner-Elements App Profiles */;
 			productType = "com.apple.product-type.tool";
@@ -111,7 +111,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E177E5AA1E491CB50024F193 /* Karabiner-Elements App Profiles */,
+				E177E5AA1E491CB50024F193 /* Karabiner-Elements-App-Profiles */,
 			);
 		};
 /* End PBXProject section */
@@ -246,7 +246,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E177E5B21E491CB50024F193 /* Build configuration list for PBXNativeTarget "Karabiner-Elements App Profiles" */ = {
+		E177E5B21E491CB50024F193 /* Build configuration list for PBXNativeTarget "Karabiner-Elements-App-Profiles" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E177E5B31E491CB50024F193 /* Debug */,
