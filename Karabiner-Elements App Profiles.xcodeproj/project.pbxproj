@@ -23,7 +23,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		E177E5AB1E491CB50024F193 /* Karabiner-Elements App Profiles */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Karabiner-Elements App Profiles"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E177E5AB1E491CB50024F193 /* Karabiner-Elements App Profiles */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = "Karabiner-Elements App Profiles"; path = "Karabiner-Elements-App-Profiles"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E177E5AE1E491CB50024F193 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,7 +89,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Nicholas Riley";
 				TargetAttributes = {
 					E177E5AA1E491CB50024F193 = {
@@ -213,6 +213,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 			};
 			name = Release;
 		};
@@ -253,6 +254,7 @@
 				E177E5B41E491CB50024F193 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
