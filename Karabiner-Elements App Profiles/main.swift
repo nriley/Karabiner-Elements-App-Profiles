@@ -40,6 +40,7 @@ class KarabinerConfiguration {
     var json: [String: Any] = [:]
     var profiles: [[String: Any]] = []
     var profileIndices : [String: Int] = [:]
+    var selectedProfileIndex: Int?
     var selectedProfileName: String?
     var defaultProfileName: String?
 
@@ -87,8 +88,10 @@ class KarabinerConfiguration {
         guard let profiles = json["profiles"] as? [[String: Any]] else {
             throw IOError.ReadError(message: "Can't find Profiles array in Karabiner-Elements preferences.")
         }
+
         profileIndices = [:]
         selectedProfileName = .none
+        selectedProfileIndex = .none
         defaultProfileName = .none
         
         for (index, profile) in profiles.enumerated() {
@@ -104,6 +107,7 @@ class KarabinerConfiguration {
                 continue
             }
             if selected {
+                selectedProfileIndex = index
                 selectedProfileName = profileName
             }
             profileIndices[profileName] = index
@@ -111,7 +115,7 @@ class KarabinerConfiguration {
 
         self.json = json
         self.profiles = profiles
-        print("Read profiles: \(profileIndices) - selected: \(selectedProfileName)")
+        print("Profiles: \(profileIndices) - selected: \(selectedProfileName)")
     }
     
     func write(jsonUpdate: [String: Any]) throws {
@@ -126,14 +130,17 @@ class KarabinerConfiguration {
         outputStream.close()
     }
     
-    func selectProfileOrDefault(named name: String) {
-        if name == selectedProfileName {
+    func selectProfileOrDefault(named nameToSelect: String) {
+        if nameToSelect == selectedProfileName {
+            return
+        }
+        let indexToSelect = profileIndices[nameToSelect] ?? 0
+        if indexToSelect == selectedProfileIndex {
             return
         }
         fileMonitor.suspend {
-            let selectedProfileIndex = profileIndices[name] ?? 0
             for index in profiles.indices {
-                let selected = (selectedProfileIndex == index)
+                let selected = (indexToSelect == index)
                 profiles[index]["selected"] = selected
             }
             var jsonUpdate = json
@@ -145,8 +152,9 @@ class KarabinerConfiguration {
                 return
             }
             json = jsonUpdate
-            selectedProfileName = (selectedProfileIndex == 0 ? defaultProfileName : name)
-            NSLog("Profile is now \(selectedProfileName)")
+            selectedProfileIndex = indexToSelect
+            selectedProfileName = (indexToSelect == 0 ? defaultProfileName : nameToSelect)
+            print("Profile is now \(selectedProfileName!)")
         }
     }
 }
