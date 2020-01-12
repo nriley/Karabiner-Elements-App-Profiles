@@ -1,5 +1,5 @@
 # Karabiner-Elements App Profiles
-Workaround for lack of app-specific behavior in [Karabiner-Elements](https://github.com/tekezo/Karabiner-Elements)
+Workaround for lack of app-specific behavior in early versions of [Karabiner-Elements](https://github.com/tekezo/Karabiner-Elements).  This should no longer be necessary as of Karabiner-Elements 0.91.6 with `frontmost_application_if` and `frontmost_application_unless` ([documentation](https://pqrs.org/osx/karabiner/json.html#condition-definition-frontmost-application)).
 
 ## Instructions
 
